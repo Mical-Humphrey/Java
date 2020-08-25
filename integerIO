@@ -5,8 +5,10 @@ Write an application that asks the user to enter two integers, obtains them from
  * 8/22/2020
 **/
 
+//First you gotta import the scanner utility
 import java.util.Scanner;
-	
+
+//Then make your class and  your main function
 public class integerIO {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
@@ -24,6 +26,8 @@ public class integerIO {
 		int difference = numOne - numTwo;
 		int quotient = numOne / numTwo;
 		
+		// printf allows Java to autofill, %d=integer data type, from the variables you specify.
+		// (%d + %d = %d) is equivalent to (numOne+numTwo=sum)
 		System.out.printf("%d+%d=%d", numOne, numTwo, sum);
 		System.out.println();
 		System.out.printf("%d*%d=%d", numOne, numTwo, product);

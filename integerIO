@@ -1,0 +1,35 @@
+Write an application that asks the user to enter two integers, obtains them from the user and prints their sum, product, difference and quotient (division). 
+
+/**
+ * @author Mical
+ * 8/22/2020
+**/
+
+import java.util.Scanner;
+	
+public class integerIO {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter first integer: ");
+		
+		int numOne = input.nextInt();
+		
+		System.out.print("Enter second integer: ");
+		
+		int numTwo = input.nextInt();
+		
+		int sum = numOne + numTwo;
+		int product = numOne * numTwo;
+		int difference = numOne - numTwo;
+		int quotient = numOne / numTwo;
+		
+		System.out.printf("%d+%d=%d", numOne, numTwo, sum);
+		System.out.println();
+		System.out.printf("%d*%d=%d", numOne, numTwo, product);
+		System.out.println();
+		System.out.printf("%d-%d=%d", numOne, numTwo, difference);
+		System.out.println();
+		System.out.printf("%d/%d=%d", numOne, numTwo, quotient);	
+	}
+}

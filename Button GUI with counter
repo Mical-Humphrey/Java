@@ -1,0 +1,62 @@
+/*
+ * Learning code with Mical Humphrey
+ * This is a slight variation on the work of Alex Lee who is a great Java teacher on the internet.
+ * You can find Alex Lee's youTube page at https://www.youtube.com/c/AlexLeeYT/store
+ * and please watch some of his videos and purchase some of his merchandise to show support!
+ */
+
+//Import the GUI components. We used the Swing framework a lot for this.
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+//Creating the class
+public class JavaButtonGUI implements ActionListener {
+
+	int count = 0;
+	private JLabel label;
+	private JFrame frame;
+	private JPanel panel;
+	
+	//This is the contructor
+	public JavaButtonGUI() {
+		
+		frame = new JFrame();
+	
+		JButton button = new JButton("Click here");
+		button.addActionListener(this);
+		
+		label = new JLabel("Number of clicks: 0");
+		
+		//Defining the Panel
+		JPanel panel = new JPanel();
+		panel.setBorder(BorderFactory.createEmptyBorder(300, 300, 100, 300));
+		panel.setLayout(new GridLayout(0, 1));
+		panel.add(button);
+		panel.add(label);
+		
+		frame.add(panel, BorderLayout.CENTER);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("Our GUI");
+		frame.pack();
+		frame.setVisible(true);
+	}
+	
+	//main, declare an iteration of the object that was previously defined
+	public static void main(String[] args) {
+		new JavaButtonGUI();
+	}
+
+	//Still learning how this works lol
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		count++;
+		label.setText("Number of clicks: " + count);
+	}
+}

@@ -1,0 +1,64 @@
+/*
+ * Mical Humphrey
+ * 
+ * We use arrays to search for a value in a list
+ * 
+ * This is a variation on Section 6 "Java for Beginners in 2 hours: Build a Banking Application" by Abhay Redkar on Udemy. 
+ * Please check out his courses and support him!
+ */
+
+package aaaFinancialJava;
+import java.util.Scanner;  // Import the Scanner class
+
+public class ArrayPractice {
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner(System.in);
+		
+		//The super easy, compact way		
+		System.out.println("----------------------------------------------");
+
+		
+		int b[] = {20, 10, 30, 50, 90};
+		for (int i = 0; i < b.length; i++)
+		{
+			System.out.println("the value in memory location " + i + " is " + b[i]);
+		}
+		
+
+		boolean wasThereAMatch = false;
+		
+		while (wasThereAMatch == false) {
+			System.out.println("----------------------------------------------");
+			System.out.println(); System.out.println();
+			System.out.print("Enter your search value: ");
+			int searchValue = input.nextInt();
+
+			
+			for (int i = 0; i < b.length; i++)
+			{
+				if (b[i] == searchValue)
+				{
+					wasThereAMatch = !wasThereAMatch;
+					System.out.println();
+					System.out.println("Match Found");
+					System.out.println("----------------------------------------------");
+
+					System.out.println("Found |" + searchValue + "| In memory location |" + i + "|");
+					System.out.println();
+				}
+			}
+		
+			if (wasThereAMatch == false)
+				{
+				System.out.println("No Match found. Please try again");
+				System.out.println();
+
+				}
+			}
+		
+		System.out.println("Thank you for joining us! Have a nice day and thank you for choosing Gringot's Bank!");
+		input.close();	
+	}	
+}
+

@@ -1,0 +1,147 @@
+/*
+* Mical Humphrey
+*
+* This is my variation on the course " build a banking application" by Abhay Redkar 
+* at https://www.udemy.com/course/java-for-beginners-in-2-hours-build-a-banking-application/learn/lecture/5507456#overview.
+* This was a great course and I highly recommend it as a beginning starting point if you're studying to use Java in the financial industry for software engineering. Practice every day!
+*
+* I improved upon the design by making the user interface more friendly, looping the main menu so the customer always knows what options to select,
+* I added withdrawals, negative transactions, to the list of possible previousTransaction() that will display for the customer.
+* I also changed the char menu options from letters to numbers to simplify selection and avoid confusion for the user interaction.
+*/
+
+package bankingApp;
+
+import java.util.Scanner;
+
+public class bankApp {
+	
+	public static void main(String[] args) {
+		
+		BankAccount obj1 = new BankAccount("John Smith", "BA0001");
+		obj1.showMenu();
+		
+	}
+}
+
+class BankAccount 
+{
+	int balance;
+	int previousTransaction;
+	String customerName;
+	String customerID;
+	
+	BankAccount(String cName, String cID)
+	{
+		customerName = cName;
+		customerID = cID;
+	}
+	
+	void deposit(int amount)
+	{
+		if (amount != 0)
+		{
+			balance += amount;
+			previousTransaction = amount;
+		}
+	}
+	
+	void withdraw(int amount)
+	{
+		if(amount != 0)
+		{
+			balance -= amount;
+			previousTransaction = -amount;
+		}
+	}
+	
+	void getPreviousTransaction() 
+	{
+		if (previousTransaction != 0)
+		{
+			if (previousTransaction < 0)
+				{System.out.println("Withdrawn: " + Math.abs(previousTransaction));}
+			else
+				{System.out.println("Deposited: " + Math.abs(previousTransaction));}
+		}
+		
+		else
+		{
+			System.out.println("No transaction occurred");
+		}
+	}
+	
+	void showMenu()
+	{
+		char option = '\0';
+		Scanner input = new Scanner(System.in);
+		do
+		{
+		System.out.println("Welcome " + customerName);
+		System.out.println("Your ID is " + customerID);
+		System.out.println();
+		System.out.println("1. Check Balance");
+		System.out.println("2. Deposit");
+		System.out.println("3. Withdraw");
+		System.out.println("4. Previous Transaction");
+		System.out.println("5. Exit");
+		
+
+			System.out.println("==========================================================");
+			System.out.println("Enter an option here: ");
+			System.out.println("==========================================================");
+			option = input.next().charAt(0);
+			System.out.println("\n");
+			
+			switch(option)
+			{
+			
+			case '1':
+				System.out.println("---------------------");
+				System.out.println("Balance = " + balance);
+				System.out.println("---------------------"); 
+				System.out.println("\n");
+				break;
+
+			case '2':
+				System.out.println("---------------------");
+				System.out.println("Enter an amount to deposit: ");
+				System.out.println("---------------------"); 
+				int amount = input.nextInt();
+				deposit(amount);
+				System.out.println("\n");
+				break;
+				
+			case '3':
+				System.out.println("---------------------");
+				System.out.println("Enter an amount to withdraw: ");
+				System.out.println("---------------------"); 
+				int amount2 = input.nextInt();
+				withdraw(amount2);
+				System.out.println("\n");
+				break;
+				
+			case '4':
+				System.out.println("---------------------");
+				getPreviousTransaction();
+				System.out.println("---------------------"); 
+				System.out.println("\n");
+				break;
+				
+			case '5':
+				System.out.println("---------------------");
+				System.out.println("*******Exited********");
+				System.out.println("---------------------"); 
+				System.out.println("\n");
+				break;
+				
+			default:
+				System.out.println("Invalid option!!! Please enter again");
+				break;
+			}
+		} while (option != '5');
+		
+		System.out.println("Thank you for using our services!");
+		input.close();
+	}
+}

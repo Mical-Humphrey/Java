@@ -1,8 +1,9 @@
 /*
- * Learning code with Mical Humphrey
+ * Mical Humphrey
  * This is a slight variation on the work of Alex Lee who is a great Java teacher on the internet.
  * You can find Alex Lee's youTube page at https://www.youtube.com/c/AlexLeeYT/store
  * and please watch some of his videos and purchase some of his merchandise to show support!
+ * Swing will soon be legacy and fully replaced with JavaFX
  */
 
 //Import the GUI components. We used the Swing framework a lot for this.
